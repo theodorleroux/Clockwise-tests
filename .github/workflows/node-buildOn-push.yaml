@@ -15,8 +15,6 @@ jobs:
           cache: 'yarn'
       - run: |
          yarn install --frozen-lockfile
-      - run: npm install
-      - run: npm ci
-      - run: npm run build:app:dev
+      - run: yarn build:app:dev
          
       
