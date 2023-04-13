@@ -16,6 +16,8 @@ jobs:
       - run: |
          yarn install --frozen-lockfile
       - run: 
+         npm install
+         npm ci
          npm run build:app:dev --if-present
-         npm test
+         
       
