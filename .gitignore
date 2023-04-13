@@ -53,3 +53,6 @@ pubsub-debug.log
 
 # Keys
 .keys/*.json
+.github/workflows/buildApiOnPush.yaml
+.github/workflows/buildCliOnPush.yaml
+.github/workflows/buildAppOnPush.yaml
