@@ -1,15 +1,19 @@
-name: Build app on Push
+name: Deploy Production 
+
 on: 
-  push: 
-    branches-ignore:
-      - "stable"
-jobs:
-  build_and_preview:
+  push:
+
+    
+jobs: 
+  deploy:
+    name: Deploy Porduction
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
+    environment: production
     steps:
+    
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -18,9 +22,6 @@ jobs:
           cache: 'yarn'
       - run: |
          yarn install --frozen-lockfile
-      - name: Build app
-        run: yarn build:app:prod
-      - name: Build api
-        run: yarn build:api:prod
-      - name: Build cli
-        run: yarn build:cli:prod
+      - name: Deploy 
+        run: yarn shipit:prod
+
